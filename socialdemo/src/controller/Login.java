@@ -28,7 +28,7 @@ public class Login extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
-    @Resource(name="jdbc/social")
+    @Resource(name="jdbc/socialdemo")
     private DataSource datasource;
     private UserDBUtil userdb;
 
