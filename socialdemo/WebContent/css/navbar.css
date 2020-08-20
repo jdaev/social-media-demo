@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@500&display=swap');
+.navbar-nav { 
+            margin-left: auto; 
+            
+        } 
+a.navbar-brand {
+    color: white !important;
+    font-size: 25px !important;
+    font-family: 'PT Sans', sans-serif;
+}
+.menu{
+	color: white !important;
+	font-size: 20px !important;
+    font-family: 'PT Sans', sans-serif;
+}
