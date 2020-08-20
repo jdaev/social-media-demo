@@ -14,16 +14,16 @@
 </head>
 <body>
 <div class="login-form">
-        <form action="" method="post">
+        <form action="Test" method="post">
     		<div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
         	<h4 class="modal-title">Welcome To Social Spark!</h4>
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email" required="required">
+                <input type="email" class="form-control" name="email" placeholder="Email" required="required">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" required="required">
+                <input type="password" class="form-control" name="password" placeholder="Password" required="required">
             </div>
-            <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">
+            <button type="submit" class="btn btn-primary btn-block btn-lg" >Login</button>
         </form>
         <div class="text-center small">Don't have an account? <a href="<%= request.getContextPath()%>/registration.jsp">Sign up</a></div>
     </div>
