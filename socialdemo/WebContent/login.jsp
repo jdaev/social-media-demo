@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="login-form">
-        <form action="Test" method="post">
+        <form action="Login" method="post">
     		<div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
         	<h4 class="modal-title">Welcome To Social Spark!</h4>
             <div class="form-group">

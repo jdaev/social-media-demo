@@ -67,7 +67,7 @@ public class GetPosts extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		response.sendRedirect("posts.jsp");
+		response.sendRedirect("home.jsp");
 	}
 
 	/**
