@@ -17,9 +17,11 @@ title>Register</title>
         <form action="" method="post">
           <h4 class="modal-title">Registration Form</h4>
             <div class="form-group">
-                <input type="text" class="form-control" name="userName" placeholder="Username" required="required">
+                <input type="text" class="form-control" name="firstname" placeholder="First Name" required="required">
             </div>
-            
+            <div class="form-group">
+                <input type="text" class="form-control" name="lastname" placeholder="Last Name" required="required">
+            </div>
             <div class="form-group">
                 <input type="email" class="form-control" name="email" placeholder="Email" required="required">
             </div>

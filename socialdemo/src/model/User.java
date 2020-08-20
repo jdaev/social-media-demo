@@ -1,92 +1,106 @@
 package model;
 
-import java.util.ArrayList;
-
-import db.PostsDBUtil;
 import db.UserDBUtil;
 
 public class User {
-	int userID;
-	String userName;
+	String fname;
+	String lname;
 	String email;
-	String password;
-	ArrayList<Post> userPosts;
-
-	public User(int userID, String userName, String email, String password) {
-		this.userID = userID;
-		this.userName = userName;
+	String pass;
+	
+	public User(String fname, String lname, String email, String pass){
+		this.fname = fname;
+		this.lname = lname;
 		this.email = email;
-		this.password = password;
-
+		this.pass = pass;
+		
+	}
+	
+	
+	public User(String email, String pass){
+		this.email = email;
+		this.pass = pass;
+	}
+	
+	
+	
+	public String getFname() {
+		return fname;
 	}
 
-	public User(String userName, String email, String password) {
-		this.userName = userName;
-		this.email = email;
-		this.password = password;
+
+
+	public void setFname(String fname) {
+		this.fname = fname;
 	}
 
-	public User(String email, String password) {
-		this.email = email;
-		this.password = password;
+
+
+	public String getLname() {
+		return lname;
 	}
+
+
+
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+
+
 
 	public String getEmail() {
 		return email;
 	}
 
-	public String getPassword() {
-		return password;
-	}
 
-	public int getUserID() {
-		return userID;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+
+
+	public String getPass() {
+		return pass;
 	}
 
-	public void setUserID(int userID) {
-		this.userID = userID;
+
+
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
 
 	public boolean login(UserDBUtil userdb) {
+		
+		
 		try {
-
+			
 			User tempUser = userdb.findUser(this.email);
-
-			if (tempUser != null) {
-				if (this.password.equals(tempUser.getPassword())) {
-					this.userName = tempUser.getUserName();
-					this.password = null;
+			
+			if(tempUser != null) {
+				if(this.pass.equals(tempUser.getPass())) {		
+					this.fname = tempUser.getFname();
+					this.lname = tempUser.getLname();
+					this.pass = null;	
 					return true;
 				}
-			}
-
+			}		
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}
+		}	
 		return false;
 	}
+	
+	
+	
 
 	public boolean createUser(UserDBUtil userdb) {
 		try {
-			userdb.insertUser(this);
-			return true;
+			 userdb.insertUser(this);
+			 return true;
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -94,27 +108,8 @@ public class User {
 		return false;
 	}
 	
-	public boolean createPost(PostsDBUtil postsdb,Post post) {
-		try {
-			postsdb.insertPost(post);
-			return true;
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		return false;
-	}
-	
-	public boolean getUserPosts(PostsDBUtil postsdb) {
-		try {
-			this.userPosts =  postsdb.getAllPostsByUser(this.userID);
-			return true;
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		return false;
-	}
-
-	
+	@Override
+	public String toString() {
+		return "My name is " + this.fname + " " + this.lname + "\n";
+	}	
 }

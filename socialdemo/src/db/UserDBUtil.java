@@ -25,15 +25,16 @@ public class UserDBUtil {
 		PreparedStatement pstmt = null;
 		ResultSet res = null;
 		
-		String userName = user.getUserName();
+		String fname = user.getFname();
+		String lname = user.getLname();
 		String email = user.getEmail();
-		String password = user.getPassword();
+		String pass = user.getPass();
 		
 		try {
 			
 			conn =  this.datasource.getConnection();
 			
-			String sql = String.format("INSERT INTO users (userName,email,password) VALUES('%s','%s','%s')",userName,email,password);
+			String sql = String.format("INSERT INTO users (fname,lname,email,pass) VALUES('%s','%s','%s','%s')",fname,lname,email,pass);
 			
 			stmt = conn.createStatement();
 			
@@ -70,12 +71,12 @@ public class UserDBUtil {
 			
 			if(res.next()) {
 				
-				String userName = res.getString("userName");
-				int userId = res.getInt("id");
+				String fname = res.getString("fname");
+				String lname = res.getString("lname");
 				String tempEmail = res.getString("email");
-				String password = res.getString("password");
+				String pass = res.getString("pass");
 				
-				tempUser = new User(userId,userName,tempEmail,password);
+				tempUser = new User(fname,lname,email,pass);
 			}
 			
 			return tempUser;
